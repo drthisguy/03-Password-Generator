@@ -30,59 +30,73 @@
   <section class="container mt-5">
     <div class="card text-center bg-primary">
       <div class="card-header">
-        Randomize it to sure up your identity
+        Randomize all your passwords to sure up your identity
       </div>
       <div class="card-body">
-        <h5 class="card-title">Enter your password criteria and requirements below:</h5>
+        <h5 class="card-title">For safe keeping, copy your new passwords to a secure location.</h5>
         <div class="container">
           <div class="row">
             <div class="col-md-6">
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <p class="card-text">Enter your password criteria below:</p>
 
               <div class="row">
-                  <div class="col">
-              <div class="form-group text-left">
-                  <div class="form-group text-left">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input alpha-upp length-box" id="customCheck1" value="">
-                      <label class="custom-control-label" for="customCheck1">Set Minimum Length (must be between 8 and 128 charecters):</label>
-                    </div>  
-                </div>
-                  
-                </div>
-              
-                <div class="form-group text-left">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input alpha-upp" id="customCheck1" value="">
-                      <label class="custom-control-label" for="customCheck1">Uppercase Characters</label>
-                    </div>  
-                </div>
+                <div class="col">
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-group text-left">
+                        <div class="form-group text-left">
+                          <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input length" id="customCheck1" value="">
+                            <label class="custom-control-label" for="customCheck1">Set a range for your password length:</label>
+                          </div>
+                        </div>
 
-                <div class="form-group text-left">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input alpha-low" id="customCheck2" value="">
-                      <label class="custom-control-label" for="customCheck2">Lowercase Characters</label>
-                    </div>  
-                </div>
+                      </div>
 
-                <div class="form-group text-left">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input numeric" id="customCheck3" value="">
-                      <label class="custom-control-label" for="customCheck3">Numeric Characters</label>
-                    </div>  
+                      <div class="form-group text-left">
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input alpha-upp" id="customCheck2" value="">
+                          <label class="custom-control-label" for="customCheck2">Uppercase Characters</label>
+                        </div>
+                      </div>
+
+                      <div class="form-group text-left">
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input alpha-low" id="customCheck3" value="">
+                          <label class="custom-control-label" for="customCheck3">Lowercase Characters</label>
+                        </div>
+                      </div>
+
+                      <div class="form-group text-left">
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input numeric" id="customCheck4" value="">
+                          <label class="custom-control-label" for="customCheck4">Numeric Characters</label>
+                        </div>
+                      </div>
+                      <div class="form-group text-left">
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input special" id="customCheck5" value="">
+                          <label class="custom-control-label" for="customCheck5">Special Characters</label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col">
+                      <div class="row">
+                        <div class="col">
+                          <input type="text" class="form-control min" placeholder="Min"
+                            id="inputDefault">
+                        </div>
+                        <div class="col">
+                          <input type="text" class="form-control max" placeholder="Max"
+                            id="inputDefault">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="form-group text-left">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input special" id="customCheck4" value="">
-                      <label class="custom-control-label" for="customCheck4">Special Characters</label>
-                    </div>  
-                </div>
+              </div>
             </div>
-            <div class="mr-3">
-            <input type="text" class="form-control length" placeholder="Enter Password Length. . ." id="inputDefault">
-        </div>
-            </div>
-        </div>
             <div class="col">
 
               <a href="#" class="btn btn-secondary btn-lg generate">Generate Password</a>

@@ -1,61 +1,67 @@
-// Generators
 
+
+//return length value
+function getLength() {
+    
+    var min = document.querySelector('.min').value;
+    var max = document.querySelector('.max').value;
+    var  length  = {minimum:min, maximum:max};
+    return length;
+}
+//returns random length between 8 & 128.
+function setRandomLength() {
+    return Math.floor((Math.random() * 120) +8);
+}
+//generates random upppercase
 function getUpper() {
     var arr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     return arr[Math.floor(Math.random() * arr.length)];
 }
-
+//generates random lowercase
 function getLower() {
     return getUpper().toLowerCase();
 }
-
+//generates random number
 function getNumber() {
     arr = ['0','1', '2','3','4','5','6','7','8','9'];
     return arr[Math.floor(Math.random() * arr.length)];
 }
-
+//generates random special char
 function getSpecialChar() {
     var arr = [' ','!', '"','#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[','\\', ']', '^', '_', '`', '}', '|', '}', '~'];
     return arr[Math.floor(Math.random() * arr.length)];
 }
 
-function getLength() {
-    var length = document.querySelector('.length');
-    return parseInt(length.value);
+function randomizor() {
+    
 }
-console.log(getUpper());
-console.log(getLower());
-console.log(getNumber());
-console.log(getSpecialChar());
 
-//Get input values from document
-var docGenerate = document.querySelector('.generate');
+var generator = document.querySelector('.generate');
 
-var docLength = document.querySelector('.length-box');
-var docUpCase = document.querySelector('.alpha-upp');
-var docLowCase = document.querySelector('.alpha-low');
-var docNumeric = document.querySelector('.numeric');
-var docSpecial = document.querySelector('.special');
-
-docGenerate.addEventListener('click', function() {
+generator.addEventListener('click', function() {
+    //Get and set input values from dom
+    var needsLength = document.querySelector('.length').checked;
+    var length = needsLength ? getLength() : setRandomLength(); 
     
-    var needsLength = docUpCase.checked;
-    var length = needsLength ? getLength() : false;
-    console.log(length);
-    var needsUpper = docUpCase.checked;
+    var needsUpper =  document.querySelector('.alpha-upp').checked;
     var upper = needsUpper ? getUpper() : false;
-    console.log(upper);
-    var needsLower = docLowCase.checked;
-    var lower = needsLower ? getLower() : false;
-    console.log(lower);
-    var needsNumber = docNumeric.checked;
-    var numeric = needsNumber ? getNumber() : false;
-    console.log(numeric);
-    var needsSpecial = docUpCase.checked;
-    var special = needsSpecial ? getSpecialChar() : false;
-    console.log(special);
-
     
+    var needsLower =  document.querySelector('.alpha-low').checked;
+    var lower = needsLower ? getLower() : false;
+   
+    var needsNumber = document.querySelector('.numeric').checked;
+    var numeric = needsNumber ? getNumber() : false;
+  
+    var needsSpecial = document.querySelector('.special').checked;
+    var special = needsSpecial ? getSpecialChar() : false;
+    
+    console.log(length, upper, lower, numeric, special);
+    
+    if (needsLength) {
+        for ( let i = length.minimum; i <= length.maximum; i++ ) {
+
+        }
+    }
 })  
 
 
