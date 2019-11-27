@@ -1,17 +1,32 @@
 
+//returns random length between min & max values.
+function setRandomLength(min, max) {
+    
+    return Math.floor((Math.random() * (max - min) + min));
+}
 
-//return length value
+//return length range values.
 function getLength() {
     
-    var min = document.querySelector('.min').value;
-    var max = document.querySelector('.max').value;
-    var  length  = {minimum:min, maximum:max};
-    return length;
+    var min = parseInt(document.querySelector('.min').value);
+    var max = parseInt(document.querySelector('.max').value);
+
+    if (isNaN(min) && isNaN(max)) { //validate.
+        alert('Your password length criteria is not valid.');
+
+      }else if (isNaN(min) && Number.isInteger(max))  {
+      
+          return max;
+
+      }else if (isNaN(max) && Number.isInteger(min)) {
+          
+            return min;
+
+    }else {
+        return setRandomLength(min, max);
+    }
 }
-//returns random length between 8 & 128.
-function setRandomLength() {
-    return Math.floor((Math.random() * 120) +8);
-}
+
 //generates random upppercase
 function getUpper() {
     var arr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
@@ -32,36 +47,55 @@ function getSpecialChar() {
     return arr[Math.floor(Math.random() * arr.length)];
 }
 
-function randomizor() {
-    
+function randomizor(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
 }
 
+function checkBox(oldArr) {
+    var newArr = [];
+    for (var i=0; i< oldArr.length; i++)
+        if (oldArr[i] !== false) {
+            newArr.push(oldArr[i]);
+        }
+    return newArr;
+}
 var generator = document.querySelector('.generate');
 
 generator.addEventListener('click', function() {
-    //Get and set input values from dom
+
+    /*Get and set all input parameters from the dom*/
+    var charz = [];
+    
     var needsLength = document.querySelector('.length').checked;
-    var length = needsLength ? getLength() : setRandomLength(); 
+    var length = needsLength ? getLength() : setRandomLength(8, 128); //default range for length.
     
     var needsUpper =  document.querySelector('.alpha-upp').checked;
     var upper = needsUpper ? getUpper() : false;
     
     var needsLower =  document.querySelector('.alpha-low').checked;
-    var lower = needsLower ? getLower() : false;
+    var lower = needsLower ? getLower() :needsLower ? charz.push(lower) : false;
    
     var needsNumber = document.querySelector('.numeric').checked;
-    var numeric = needsNumber ? getNumber() : false;
+    var numeric = needsNumber ? getNumber() : needsNumber ? charz.push(numeric) : false;
   
     var needsSpecial = document.querySelector('.special').checked;
-    var special = needsSpecial ? getSpecialChar() : false;
+    var special = needsSpecial ? getSpecialChar() : needsSpecial ? charz.push(special) : false;
     
-    console.log(length, upper, lower, numeric, special);
+    console.log(charz, length, upper, lower, numeric, special);
     
-    if (needsLength) {
-        for ( let i = length.minimum; i <= length.maximum; i++ ) {
+    var charz = [upper, lower, numeric, special];
+    charz = checkBox(charz); 
 
-        }
-    }
+
+
+    // charz = randomizor(charz);
+    console.log(charz);
+    // var output = '';
+    // for ( let i = 0; i <= length; i++ ) {
+    //     output += charz[i];
+    //     console.log(output);
+    // }
+    
 })  
 
 
