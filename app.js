@@ -46,6 +46,12 @@ function checkBox(arr) {
     return criteria;
 }
 
+function copier(clip) {
+    
+    
+ }
+
+
 // toLowerCase for an array.
 function lowerCase(alphabet) {
     return alphabet.toLowerCase();
@@ -58,6 +64,7 @@ var numeric = ['0','1', '2','3','4','5','6','7','8','9'];
 var special = [' ','!', '"','#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[','\\', ']', '^', '_', '`', '}', '|', '}', '~'];
 
 var generator = document.querySelector('.generate');
+var copy = document.querySelector('#copy');
 
 generator.addEventListener('click', function() {
 
@@ -91,7 +98,14 @@ generator.addEventListener('click', function() {
         output += randomizor(charz);
         console.log(output);
     }
-    document.getElementById('output').innerHTML = output;
+    document.getElementById('output').innerHTML = `<p text-break id="copy-text">${output}</p>  
+        <div class="row"><div class="col"><button type="button" class="btn btn-success mt-4 text-break copy">Copy to Clipboard</button></div></div>`;
+
+    copy.addEventListener('click', function() {
+         
+    navigator.clipboard.writeText(clip);
+    })
+
 })  
 
-
+console.log(output);
