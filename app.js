@@ -1,9 +1,5 @@
+/*                  Functions                   */
 
-//returns random length between min & max values.
-function setRandomLength(min, max) {
-    
-    return Math.floor((Math.random() * (max - min) + min));
-}
 
 function randomizor(arr) {
     //pick random array
@@ -34,25 +30,42 @@ function getLength() {
         return setRandomLength(min, max);
     }
 }
+ 
+//returns random length between min & max values.
+function setRandomLength(min, max) {
+    
+    return Math.floor((Math.random() * (max - min) + min));
+}
 
 //sort out unchecked criteria.
 function checkBox(arr) {
 
     var criteria = [];
     for (var i=0; i < arr.length; i++)
+
         if (arr[i] !== false) {
             criteria.push(arr[i]);
         }
+
     return criteria;
 }
 
-function copier(clip) {
-    
+function copier() {
+
+    var clip = document.querySelector('#clipboard').textContent;
+    var txtEl = document.createElement('textarea');
+    txtEl.value = clip;
+    document.body.appendChild(txtEl);
+    txtEl.select();
+    document.execCommand('copy');
+    document.body.removeChild(txtEl);
+    alert('Password coppied to clipboard');
  }
 
 
 // toLowerCase for an array.
 function lowerCase(alphabet) {
+
     return alphabet.toLowerCase();
 }
 
@@ -62,10 +75,8 @@ var lower = upper.map(lowerCase);
 var numeric = ['0','1', '2','3','4','5','6','7','8','9'];
 var special = [' ','!', '"','#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[','\\', ']', '^', '_', '`', '}', '|', '}', '~'];
 
-var generator = document.querySelector('.generate');
 
-
-generator.addEventListener('click', function() {
+document.querySelector('.generate').addEventListener('click', function() {
 
     /*Get and set all input parameters from the dom*/
     
@@ -83,37 +94,24 @@ generator.addEventListener('click', function() {
   
     var needsSpecial = document.querySelector('.special').checked;
     special = needsSpecial ? special : false;
-    
-    console.log(length, upper, lower, numeric, special);
-    
+        
     var charz = [upper, lower, numeric, special];
-    charz = checkBox(charz); // sort out unchecked criteria
-
+    charz = checkBox(charz);
 
     console.log(charz);
     var output = '';
     for ( let i = 0; i <= length; i++ ) {
         
         output += randomizor(charz);
-        console.log(output);
     }
-    document.getElementById('output').innerHTML = `<p class = "text-break" id="copy-text">${output}</p>  
+
+    document.getElementById('output').innerHTML = `<p class = "text-break" id="clipboard">${output}</p>  
     <div class="row"><div class="col"><button type="button" class="btn btn-success mt-4 copy">Copy to Clipboard</button></div></div>`;
 
     //Copy password to clipboard.
-    var copyClip = document.querySelector('.copy');
-    copyClip.addEventListener('click', function() {
-
-        var txtEl = document.createElement('textarea');
-        txtEl.value = output;
-        document.body.appendChild(txtEl);
-        txtEl.select();
-        document.execCommand('copy');
-        document.body.removeChild(txtEl);
-        alert('Password coppied to clipboard');
+    document.querySelector('.copy').addEventListener('click', copier);
 
     console.log(output);
-    })
 
 })  
 
