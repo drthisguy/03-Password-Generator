@@ -1,9 +1,9 @@
 function randomizor(arr) {
   //pick out random array
-  arr = arr[Math.floor(Math.random() * arr.length)];
+  randArr = arr[Math.floor(Math.random() * arr.length)];
 
   //return random character from random array
-  return arr[Math.floor(Math.random() * arr.length)];
+  return randArr[Math.floor(Math.random() * randArr.length)];
 }
 
 //return password length.
@@ -90,10 +90,10 @@ document.querySelector(".generate").addEventListener("click", function() {
 
   //sort out unchecked criteria
   charz = checkBox(charz);
-
+ console.log(length);
   //generate password
   var output = "";
-  for (var i = 0; i <= length; i++) {
+  for (var i = 0; i < length; i++) {
     output += randomizor(charz);
   }
 
