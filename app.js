@@ -69,12 +69,10 @@ document.querySelector('.length').onchange = function() {
     document.querySelector('.max').disabled = !this.checked;
 };
 
-function hideOutput() {
-    document.getElementById('output').innerHTML = '';
-};
+
+    
 
 document.querySelector(".generate").addEventListener("click", function() {
-    hideOutput();
   /*Get and set all input parameters from the dom*/
 
   var needsLength = document.querySelector(".length").checked;
@@ -112,8 +110,8 @@ document.querySelector(".generate").addEventListener("click", function() {
   document.querySelector(".copy").addEventListener("click", copier);
   }
      else {
-        hideOutput();
-     }
-});
+      document.getElementById('output').innerHTML = '';
+    }
+  });
 
 
