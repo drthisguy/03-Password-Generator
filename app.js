@@ -1,9 +1,9 @@
 function randomizor(arr) {
-  //pick out random array
-  randArr = arr[Math.floor(Math.random() * arr.length)];
+    //pick out random array
+    randArr = arr[Math.floor(Math.random() * arr.length)]; 
 
-  //return random character from random array
-  return randArr[Math.floor(Math.random() * randArr.length)];
+    //return random character from random array
+    return randArr[Math.floor(Math.random() * randArr.length)];
 }
 
 //return password length.
@@ -67,17 +67,6 @@ var lower = upper.map(lowerCase);
 var numeric = ['0','1', '2','3','4','5','6','7','8','9'];
 var special = [' ','!', '"','#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[','\\', ']', '^', '_', '`', '}', '|', '}', '~'];
 
-<<<<<<< HEAD
-// enable/disable text fields for PW range. 
-document.querySelector('.length').onchange = function() {
-    document.querySelector('.min').disabled = !this.checked;
-    document.querySelector('.max').disabled = !this.checked;
-};
-
-
-    
-=======
->>>>>>> 21cec2aafef4c8d8acff51f3e597ca068074eb72
 
 document.querySelector(".generate").addEventListener("click", function() {
   /*Get and set all input parameters from the dom*/
@@ -101,31 +90,29 @@ document.querySelector(".generate").addEventListener("click", function() {
 
   //sort out unchecked criteria
   charz = checkBox(charz);
- console.log(length);
+
   //generate password
   var output = "";
-  for (var i = 0; i < length; i++) {
-    output += randomizor(charz);
+  if (charz.length !== 0) {
+    for (var i = 0; i < length; i++) {
+      output += randomizor(charz);  
+    }
+  }  else {
+    alert('Please provide at least 1 set of criteria for your password.');
+    location.reload();
   }
 
+  
   if (output !== "") {
     document.getElementById(
       "output"
-    ).innerHTML = `<p class = "text-break" id="clipboard">${output}</p>  
+    ).innerHTML = `<p class="text-break" id="clipboard">${output}</p>  
     <div class="row"><div class="col"><button type="button" class="btn btn-success mt-4 copy">Copy to Clipboard</button></div></div>`;
 
     //Copy password to clipboard.
     document.querySelector(".copy").addEventListener("click", copier);
   } else {
+
     document.getElementById("output").textContent = "";
   }
-<<<<<<< HEAD
-     else {
-      document.getElementById('output').innerHTML = '';
-    }
-  });
-
-
-=======
 });
->>>>>>> 21cec2aafef4c8d8acff51f3e597ca068074eb72
