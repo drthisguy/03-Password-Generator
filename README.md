@@ -10,7 +10,7 @@ index.html app.js LICENSE README.md
 
 Deployed application site:
 
-https://drthisguy.github.io/Homework-3/index.html
+https://drthisguy.github.io/03-Password-Generator
 
 Screen grabs:
 
