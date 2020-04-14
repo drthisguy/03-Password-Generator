@@ -2,7 +2,7 @@
 
 This is the Password Generator application for homework-3.
 Users can custom set the password criteria (e.g. upper/lower case, numeric or special characters). All four criteria are selected by default.  
-The user can define the password length or have it selected at randomm between a range, also set by the user.  Default lengths are selected at random between 8 and 128 characters. 
+The user can define the password length or have it selected at random between a range, also set by the user.  Default lengths are selected at random between 8 and 128 characters. 
 
 A file manifest:
 
