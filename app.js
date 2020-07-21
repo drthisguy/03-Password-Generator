@@ -30,9 +30,11 @@ function setRandomLength(min, max) {
 
 //sort out unchecked criteria.
 function checkBox(arr) {
+  console.log(arr)
   var criteria = [];
   for (var i = 0; i < arr.length; i++)
-    if (arr[i] !== false) {
+    if (arr[i]) {
+      console.log(arr[i])
       criteria.push(arr[i]);
     }
 

@@ -1,8 +1,8 @@
 # Homework-3
 
-This is the Password Generator application for homework-3.
+This is the Password Generator application for homework-3 (first JS assignment ever).
 Users can custom set the password criteria (e.g. upper/lower case, numeric or special characters). All four criteria are selected by default.  
-The user can define the password length or have it selected at random between a range, also set by the user.  Default lengths are selected at random between 8 and 128 characters. 
+The user can define the password length or have it selected at random between a range, also set by the user.  Default lengths are selected at random between 8 and 128 characters.  Obviously, there are better ways to generate random characters and if I did it again, things would be different. 
 
 A file manifest:
 
@@ -23,9 +23,9 @@ https://user-images.githubusercontent.com/48693333/70165106-56779280-1690-11ea-8
 Contact: page.c.tyler@gmail.com
 
 Known issues.
-I am not reloading the page with checkboxes.  Therfore, when an unchecked box (that was initially checked) is rechecked, it will not be part of the password criteria.  It will be necessary to reload the page and then reset all criteria.
+I am not reloading the page with non-reusable checkboxes.  Therefore, when an unchecked box (that was initially checked) is rechecked, it will not be part of the password criteria.  It will be necessary to reload the page and then reset all criteria.
 
-template literals are used therfore, this app is not compatible with older (pre ES6) browsers.  the innerHTML property is in use as well.  Here, it is done in a way so that there are no real security issues since only valid numbers can be read out from the input fields. If a valid length is not taken in the innerHTML property does not execute. 
+template literals are used so this app is not compatible with older (pre ES6) browsers.  Beware of the innerHTML property  in use here.  
 
 sources:
 
